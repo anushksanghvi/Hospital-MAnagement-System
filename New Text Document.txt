@@ -1,0 +1,34 @@
+CREATE DATABASE hospital;
+USE hospital;
+
+CREATE TABLE patients(
+id int auto_increment primary key,
+name varchar(255) not null,
+age int not null,
+gender varchar(10) not null
+);
+
+create table DOCTORS(
+id int auto_increment primary key,
+name varchar(255) not null,
+specialization varchar(255) not null
+);
+
+create table APPOINTMENTS(
+id int auto_increment primary key,
+patient_id int not null,
+doctor_id int not null,
+appointment_date DATE not null,
+foreign key (patient_id) references patients(id),
+foreign key (doctor_id) references doctors(id)
+);
+
+show databases;
+show tables;
+select * from patients;
+
+insert into doctors(name, specialization) values("Pankaj Jain", "Physician");
+insert into doctors(name, specialization) values("Harshit Amod", "NeuroSurgeon");
+select * from doctors;
+
+select * from appointments;
